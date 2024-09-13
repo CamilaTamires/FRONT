@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue.js Contador e Mostrar/Ocultar Texto</title>
+  <!-- Incluindo o Vue.js via CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <!-- Incluindo o arquivo JavaScript onde o Vue.js será configurado -->
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <!-- O elemento onde o Vue.js vai se conectar -->
+  <div id="app">
+    <!-- Exibindo o valor do contador -->
+    <p>Contador: {{contador}}</p>
+    <!-- Botão para decrementar o contador -->
+    <button @click="decrementar">decrementar</button>
+    
+    <!-- Botão para incrementar o contador -->
+    <button @click="incrementar">Incrementar</button>
+
+    <!-- Botão para mostrar/ocultar o texto -->
+    <button @click="mostrarTexto = !mostrarTexto">
+      {{ mostrarTexto ? 'Ocultar Texto' : 'Mostrar Texto' }}
+    </button>
+    <br><br>
+    <input v-model = "nome" placeholder="Digite seu nome"/>
+    <p>Bem-Vindo {{ nome }}</p>
+
+    <!-- Texto que será exibido somente se 'mostrarTexto' for true -->
+    <p v-if="mostrarTexto">Agora você vê :]</p>
+
+    <ul>
+      <li v-for="(item, index) in itens" :key="index">{{ item }}</li>
+    </ul>
+
+  </div>
+</body>
+</html>
